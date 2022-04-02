@@ -18,10 +18,11 @@
 
 
 .world {
-    display: flex;
+    /*display: flex;*/
 
-    width: 400px;
-    height: 400px;
+    width: 375px;
+    height: 375px;
+    margin-left: 30px;
 }
 
 
@@ -48,37 +49,38 @@
 
 
 .elementWater{
-    grid-row-start: 2;
-    grid-row-end: 2;
-    grid-column-start: 3;
-    grid-column-end: 3;
+    grid-row-start:  var(--Water-row-start);
+    grid-row-end:  var(--Water-row-end);
+    grid-column-start:  var(--Water-column-start);
+    grid-column-end: var(--Water-column-end);
     background-color: mediumblue;
-    background-size: 50px 50px;
+/*    background-size: 50px 50px;*/
 }
 
 .elementEarth2 {
-    grid-row-start: 1;
-    grid-row-end: 1;
-    grid-column-start: 1;
-    grid-column-end: 1;
+
+    grid-row-start: var(--Earth2-row-start);
+    grid-row-end: var(--Earth2-row-end);
+    grid-column-start: var(--Earth2-column-start);
+    grid-column-end: var(--Earth2-column-end);
     background-color: coral;
     /*background-image: repeating-linear-gradient(-45deg,transparent,transparent 10px,rgba(255,133,27,.3) 10px,rgba(255,133,27,.3) 20px);*/
 
 }
 .elementEarth5 {
-    grid-row-start: 2;
-    grid-row-end: 2;
-    grid-column-start: 2;
-    grid-column-end: 2;
+    grid-row-start: var(--Earth5-row-start);
+    grid-row-end: var(--Earth5-row-end);
+    grid-column-start: var(--Earth5-column-start);
+    grid-column-end: var(--Earth5-column-end);
     background-color: coral;
     /*background-image: repeating-linear-gradient(-45deg,transparent,transparent 10px,rgba(255,133,27,.3) 10px,rgba(255,133,27,.3) 20px);*/
 
 }
 .elementEarth8 {
-    grid-row-start: 3;
-    grid-row-end: 3;
-    grid-column-start: 3;
-    grid-column-end: 3;
+    grid-row-start: var(--Earth8-row-start);
+    grid-row-end: var(--Earth8-row-end);
+    grid-column-start: var(--Earth8-column-start);
+    grid-column-end: var(--Earth8-column-end);
     background-color: coral;
     /*background-image: repeating-linear-gradient(-45deg,transparent,transparent 10px,rgba(255,133,27,.3) 10px,rgba(255,133,27,.3) 20px);*/
 
@@ -86,10 +88,10 @@
 
 .elementTree3 {
 
-    grid-row-start: 3;
-    grid-row-end: 3;
-    grid-column-start: 2;
-    grid-column-end: 2;
+    grid-row-start: var(--Tree3-row-start);
+    grid-row-end: var(--Tree3-row-end);
+    grid-column-start: var(--Tree3-column-start);
+    grid-column-end: var(--Tree3-column-end);
 
     /*background-image: url("../assets/img/grass.svg");*/
     background-color:   lightgreen;
@@ -99,10 +101,10 @@
 
 .elementTree4 {
 
-    grid-row-start: 3;
-    grid-row-end: 3;
-    grid-column-start: 1;
-    grid-column-end: 2;
+    grid-row-start: var(--Tree4-row-start);
+    grid-row-end: var(--Tree4-row-end);
+    grid-column-start: var(--Tree4-column-start);
+    grid-column-end: var(--Tree4-column-end);
 
     /*background-image: url("../assets/img/grass.svg");*/
     background-color:   lightgreen;
@@ -111,10 +113,10 @@
 
 .elementFire {
 
-    grid-row-start: 2;
-    grid-row-end: 2;
-    grid-column-start: 1;
-    grid-column-end: 2;
+    grid-row-start: var(--Fire-row-start);
+    grid-row-end: var(--Fire-row-end);
+    grid-column-start: var(--Fire-column-start);
+    grid-column-end: var(--Fire-column-end);
     /*background-image: url("../assets/img/rock.svg");*/
     background-color: lightpink;
     background-size: contain;
@@ -122,10 +124,10 @@
 
 .elementMetal6 {
 
-    grid-row-start: 1;
-    grid-row-end: 2;
-    grid-column-start: 3;
-    grid-column-end: 3;
+    grid-row-start: var(--Metal6-row-start);
+    grid-row-end: var(--Metal6-row-end);
+    grid-column-start: var(--Metal6-column-start);
+    grid-column-end: var(--Metal6-column-end);
     /*background-image: url("../assets/img/rock.svg");*/
     background-color: #b2b2b2;
     background-size: contain;
@@ -133,10 +135,10 @@
 
 .elementMetal7 {
 
-    grid-row-start: 1;
-    grid-row-end: 1;
-    grid-column-start: 2;
-    grid-column-end: 2;
+    grid-row-start: var(--Metal7-row-start);
+    grid-row-end: var(--Metal7-row-end);
+    grid-column-start: var(--Metal7-column-start);
+    grid-column-end: var(--Metal7-column-end);
     /*background-image: url("../assets/img/rock.svg");*/
     background-color: #b2b2b2;
     background-size: contain;

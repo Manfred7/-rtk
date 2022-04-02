@@ -1,7 +1,7 @@
 import React from 'react';
-import s from "./cardSouth.module.css"
+import s from "./cardcardUniversal.module.css"
 
-const CardSouth = () => {
+const CardUniversal = () => {
     return (<div className={s.world}>
             <div className={s.land}>
 
@@ -69,4 +69,4 @@ const CardSouth = () => {
         </div>);
 };
 
-export default CardSouth;
+export default CardUniversal;
