@@ -34,7 +34,7 @@ const CardUniversal = ({stars}) => {
             </div>
 
             <div className={s.elementEarth2}>
-                <Land star={stars["yz"]} caption="Юго-Запад" baseStar={9}/>
+                <Land star={stars["yz"]} caption="Юго-Запад" baseStar={2}/>
             </div>
 
             <div className={s.elementEarth5}>
@@ -48,7 +48,7 @@ const CardUniversal = ({stars}) => {
             </div>
 
             <div className={s.elementMetal7}>
-                <Land star={stars["z"]} caption="Запад" baseStar={8}/>
+                <Land star={stars["z"]} caption="Запад" baseStar={7}/>
             </div>
 
             <div className={s.elementMetal6}>
