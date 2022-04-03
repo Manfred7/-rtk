@@ -1,19 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import CardUniversal from "./Components/CardUniversal/cardUniversal";
-import CardLoShu from "./Components/CardLoShu/cardLoShu";
-
-
-import CustomProperties from 'react-custom-properties';
-import {customEastProp, customNordProp, customSouthProp, customWestProp} from "./data/cards-setting";
-import {DatePicker, Space} from 'antd';
-
-import {Select} from 'antd';
 import CardsPage from "./Components/Pages/cardsPage";
 
-
 function App() {
-
 
     return (
         <div className="App">

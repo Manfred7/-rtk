@@ -1,51 +1,40 @@
 import React from 'react';
 import s from "./cardcardUniversal.module.css"
 
+
+const Land = ({star, caption, baseStar}) => {
+
+    return (
+        <div className={s.caption}>
+            <div className={s.side}>{caption}</div>
+            <div className={s.star}>{baseStar}</div>
+            <div className={s.star}>{star}</div>
+        </div>
+    )
+}
 const CardUniversal = ({stars}) => {
 
     return (<div className={s.world}>
         <div className={s.land}>
 
             <div className={s.elementWater}>
-                <div className={s.caption}>
-                    <div className={s.side}>Север</div>
-                    <div className={s.star}>1</div>
-                    <div className={s.star}>{stars["s"]}</div>
-                </div>
+                <Land star={stars["s"]} caption="Север" baseStar={1}/>
             </div>
 
-
             <div className={s.elementTree3}>
-                <div className={s.caption}>
-                    <div className={s.side}>Восток</div>
-                    <div className={s.star}>3</div>
-                    <div className={s.star}>{stars["v"]}</div>
-                </div>
-
+                <Land star={stars["v"]} caption="Восток" baseStar={3}/>
             </div>
 
             <div className={s.elementTree4}>
-                <div className={s.caption}>
-                    <div className={s.side}>Юго-Восток</div>
-                    <div className={s.star}>4</div>
-                    <div className={s.star}>{stars["yv"]}</div>
-                </div>
+                <Land star={stars["yv"]} caption="Юго-Восток" baseStar={4}/>
             </div>
 
             <div className={s.elementFire}>
-                <div className={s.caption}>
-                    <div className={s.side}>Юг</div>
-                    <div className={s.star}>9</div>
-                    <div className={s.star}>{stars["y"]}</div>
-                </div>
+                <Land star={stars["y"]} caption="Юг" baseStar={9}/>
             </div>
 
             <div className={s.elementEarth2}>
-                <div className={s.caption}>
-                    <div className={s.side}>Юго-Запад</div>
-                    <div className={s.star}>2</div>
-                    <div className={s.star}>{stars["yz"]}</div>
-                </div>
+                <Land star={stars["yz"]} caption="Юго-Запад" baseStar={9}/>
             </div>
 
             <div className={s.elementEarth5}>
@@ -55,31 +44,19 @@ const CardUniversal = ({stars}) => {
             </div>
 
             <div className={s.elementEarth8}>
-                <div className={s.caption}>
-                    <div className={s.side}>Северо-Восток</div>
-                    <div className={s.star}>8</div>
-                    <div className={s.star}>{stars["sv"]}</div>
-                </div>
+                <Land star={stars["sv"]} caption="Северо-Восток" baseStar={8}/>
             </div>
 
             <div className={s.elementMetal7}>
-                <div className={s.caption}>
-                    <div className={s.side}>Запад</div>
-                    <div className={s.star}>7</div>
-                    <div className={s.star}>{stars["z"]}</div>
-                </div>
+                <Land star={stars["z"]} caption="Запад" baseStar={8}/>
             </div>
 
             <div className={s.elementMetal6}>
-                <div className={s.caption}>
-                    <div className={s.side}>Северо-Запад</div>
-                    <div className={s.star}>6</div>
-                    <div className={s.star}>{stars["sz"]}</div>
-                </div>
+                <Land star={stars["sz"]} caption="Северо-Запад" baseStar={6}/>
             </div>
 
         </div>
-    </div>);
+    </div>) ;
 };
 
 export default CardUniversal;
