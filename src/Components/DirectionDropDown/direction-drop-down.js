@@ -16,11 +16,11 @@ const DirectionDropDown = () => {
 
             <Space direction="vertical" size={12}>
                 {/*<DatePicker onChange={onChange} picker="year"/>*/}
-
+                <label>Направление</label>
                 <Select
                     showSearch
                     style={{width: 200}}
-                    placeholder="Search to Select"
+                    placeholder="Градус на двери"
                     optionFilterProp="children"
                     filterOption={(input, option) =>
                         option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0

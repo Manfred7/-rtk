@@ -116,9 +116,11 @@ const CardsPage = () => {
     return (
         <>
 
-            <DirectionDropDown/>
 
-            <div style={{display: "flex", direction: "row", flexWrap: "wrap"}}>
+            <div style={{textAlign:"left", marginBottom: "10px", marginLeft:"30px" , marginTop:"30px"}}><DirectionDropDown/>
+            </div>
+            <div style={{display: "flex", direction: "row", flexWrap: "wrap", alignItems:"center"}}>
+
 
             {/*     <div>
                      <CardLoShu/>
