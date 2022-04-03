@@ -1,50 +1,260 @@
 {
-  "LocalComment":
-  {
-    "comment": "a film that changed my life, a true masterpiece, post-credit scene was just amazing omg.",
-    "date": "2019-05-11T16:12:32.554Z",
-    "emotion": "smile"
-  },
-  "serverComment": {
-    "id": "42",
-    "author": "Ilya O'Reilly",
-    "comment": "a film that changed my life, a true masterpiece, post-credit scene was just amazing omg.",
-    "date": "2019-05-11T16:12:32.554Z",
-    "emotion": "smile"
-  },
-  "emmoution": ["smile", "sleeping", "puke", "angry"],
-  "media": {
-    "id": "0",
-    "comments": [
-    ],
-    "film_info": {
-      "title": "A Little Pony Without The Carpet",
-      "alternative_title": "Laziness Who Sold Themselves",
-      "total_rating": 5.3,
-      "poster": "images/posters/blue-blazes.jpg",
-      "age_rating": 0,
-      "director": "Tom Ford",
-      "writers": [
-        "Takeshi Kitano"
-      ],
-      "actors": [
-        "Morgan Freeman"
-      ],
-      "release": {
-        "date": "2019-05-11T00:00:00.000Z",
-        "release_country": "Finland"
+  "starCards": {
+    "6period": {
+      "startFrom": 1964,
+      "endTo": 1984,
+      "sever1": {
+        "gradusStart": 338,
+        "gradusEnd": 352,
+        "stars": [
+          93,
+          57,
+          75,
+          84,
+          12,
+          39,
+          48,
+          66,
+          21
+        ]
       },
-      "runtime": 77,
-      "genre": [
-        "Comedy"
-      ],
-      "description": "Oscar-winning film, a war drama about two young people, from the creators of timeless classic \"Nu, Pogodi!\" and \"Alice in Wonderland\", with the best fight scenes since Bruce Lee."
+      "sever23": {
+        "gradusStart": 353,
+        "gradusEnd": 22,
+        "stars": [
+          21,
+          66,
+          48,
+          39,
+          12,
+          84,
+          75,
+          57,
+          93
+        ]
+      },
+      "sv1": {
+        "gradusStart": 23,
+        "gradusEnd": 37,
+        "stars": [
+          74,
+          96,
+          52,
+          28,
+          39,
+          41,
+          17,
+          63,
+          85
+        ]
+      },
+      "sv23": {
+        "gradusStart": 38,
+        "gradusEnd": 67,
+        "stars": [
+          85,
+          63,
+          17,
+          41,
+          39,
+          28,
+          52,
+          96,
+          74
+        ]
+      },
+      "v1": {
+        "gradusStart": 68,
+        "gradusEnd": 82,
+        "stars": [
+          27,
+          62,
+          73,
+          49,
+          84,
+          38,
+          95,
+          16,
+          51
+        ]
+      },
+      "v23": {
+        "gradusStart": 83,
+        "gradusEnd": 112,
+        "stars": [
+          51,
+          16,
+          95,
+          38,
+          84,
+          49,
+          73,
+          62,
+          27
+        ]
+      },
+      "yv1": {
+        "gradusStart": 113,
+        "gradusEnd": 127,
+        "stars": [
+          93,
+          84,
+          39,
+          48,
+          75,
+          12,
+          21,
+          66,
+          57
+        ]
+      },
+      "yv23": {
+        "gradusStart": 128,
+        "gradusEnd": 157,
+        "stars": [
+          57,
+          66,
+          21,
+          12,
+          75,
+          48,
+          39,
+          84,
+          93
+        ]
+      },
+      "y1": {
+        "gradusStart": 158,
+        "gradusEnd": 172,
+        "stars": [
+          12,
+          66,
+          84,
+          93,
+          21,
+          48,
+          57,
+          75,
+          39
+        ]
+      },
+      "y23": {
+        "gradusStart": 173,
+        "gradusEnd": 202,
+        "stars": [
+          39,
+          75,
+          57,
+          48,
+          21,
+          93,
+          84,
+          66,
+          12
+        ]
+      },
+      "yz1": {
+        "gradusStart": 203,
+        "gradusEnd": 217,
+        "stars": [
+          58,
+          36,
+          71,
+          14,
+          93,
+          82,
+          25,
+          69,
+          47
+        ]
+      },
+      "yz23": {
+        "gradusStart": 218,
+        "gradusEnd": 247,
+        "stars": [
+          47,
+          69,
+          25,
+          82,
+          93,
+          14,
+          71,
+          36,
+          58
+        ]
+      },
+      "z1": {
+        "gradusStart": 248,
+        "gradusEnd": 262,
+        "stars": [
+          15,
+          61,
+          59,
+          83,
+          48,
+          94,
+          37,
+          26,
+          72
+        ]
+      },
+      "z23": {
+        "gradusStart": 263,
+        "gradusEnd": 292,
+        "stars": [
+          72,
+          26,
+          37,
+          94,
+          48,
+          83,
+          59,
+          61,
+          15
+        ]
+      },
+      "sz1": {
+        "gradusStart": 293,
+        "gradusEnd": 307,
+        "stars": [
+          75,
+          66,
+          12,
+          21,
+          57,
+          84,
+          93,
+          48,
+          39
+        ]
+      },
+      "sz23": {
+        "gradusStart": 308,
+        "gradusEnd": 337,
+        "stars": [
+          39,
+          48,
+          93,
+          84,
+          57,
+          21,
+          12,
+          66,
+          75
+        ]
+      }
     },
-    "user_details": {
-      "watchlist": false,
-      "already_watched": true,
-      "watching_date": "2019-04-12T16:12:32.554Z",
-      "favorite": false
+    "7period": {
+      "startFrom": 1984,
+      "endTo": 2004,
+      "sever1": {},
+      "sever23": {}
+    },
+    "8period": {
+      "startFrom": 2004,
+      "endTo": 2024,
+      "sever1": {},
+      "sever23": {}
     }
   }
 }
