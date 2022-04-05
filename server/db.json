@@ -1,6 +1,6 @@
 {
   "starCards": {
-    "6period": {
+    "periodSix": {
       "startFrom": 1964,
       "endTo": 1984,
       "sever1": {
@@ -244,13 +244,13 @@
         ]
       }
     },
-    "7period": {
+    "periodSeven": {
       "startFrom": 1984,
       "endTo": 2004,
       "sever1": {},
       "sever23": {}
     },
-    "8period": {
+    "periodEight": {
       "startFrom": 2004,
       "endTo": 2024,
       "sever1": {},

@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import 'antd/dist/antd.compact.min.css';
 import {Provider} from "react-redux";
-import {store} from "./slices/cardSlice";
+import {store} from "./slices/reduxStore";
 
 
 ReactDOM.render(

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Select, Space} from "antd";
-import {chouseDirection} from "../../slices/cardSlice";
+import {chouseDirection} from "../../slices/reduxStore";
 import {useDispatch} from "react-redux";
 
 const {Option} = Select;

@@ -1,5 +1,6 @@
 import {configureStore, createSlice, nanoid} from "@reduxjs/toolkit";
 import {logger} from "redux-logger";
+import {cardsApi} from "../api/cards-api";
 
 const cardSlice = createSlice({
     name: "@@card",
@@ -31,13 +32,19 @@ const cardSlice = createSlice({
 
 })
 
+const dataReducer = { [cardsApi.reducerPath]: cardsApi.reducer}
+const reducer = {
+    [cardsApi.reducerPath]: cardsApi.reducer,
+    cardsReducer:   cardSlice.reducer ,
+
+}
 export const {chouseDirection, chousePeriod} = cardSlice.actions;
 
 export const store =  configureStore(
     {
-        reducer:cardSlice.reducer,
+        reducer:reducer,
         devTools:true,
-        middleware: (getDeafaultMiddlware)=>getDeafaultMiddlware().concat(logger)
+        middleware: (getDeafaultMiddlware)=>getDeafaultMiddlware().concat(cardsApi.middleware)
 
     }
 )

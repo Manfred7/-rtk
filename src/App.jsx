@@ -1,12 +1,34 @@
 import React from 'react';
 import './App.css';
 import CardsPage from "./Components/Pages/cardsPage";
+import {useGetCardsQuery} from "./api/cards-api";
+
 
 function App() {
 
+    const {data, isLoading} = useGetCardsQuery();
+
+    console.log({data});
+    if (data) {
+        const periodSix = data.periodSix;
+        const periodSeven = data.periodSeven;
+        const periodEight = data.periodEight;
+        console.log({periodSeven});
+        console.log({periodEight});
+    }
+
+
+
+
+    if (isLoading) {
+        return (<h1>Loading...</h1>)
+    }
+
     return (
         <div className="App">
-            <CardsPage/>
+
+
+          {/*  <CardsPage/>*/}
         </div>
     );
 }
