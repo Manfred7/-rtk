@@ -9,50 +9,79 @@ import {
 } from "../../data/cards-setting";
 import CardUniversal from "../CardUniversal/cardUniversal";
 import {useSelector} from "react-redux";
-import {directionSelector} from "../../slices/selectors/card-selectors";
+import {directionSelector, periodSelector} from "../../slices/selectors/card-selectors";
 import DirectionDropDown from "../DirectionDropDown/direction-drop-down";
+import PeriodDropDown from "../PeriodDropDown/period-dropdown";
 
-const CardsPage = () => {
+const CardsPage = ({data}) => {
+
+    const {periodSix, periodSeven, periodEight, indexesMaps: startMap} = data;
+    const selectedPeriod = useSelector(periodSelector);
+
+    let periodData;
+
+    switch (selectedPeriod) {
+        case '6':
+            periodData = periodSix;
+            console.log({periodSix});
+            break;
+        case '7':
+            periodData = periodSeven;
+            console.log({periodSeven});
+            break;
+        case '8':
+            periodData = periodEight;
+            console.log({periodEight});
+            break;
+        default:
+            console.error('Не корректный период ', selectedPeriod)
+            console.warn('Не корректный период ', periodData);
+
+    }
+
 
     const direction = useSelector(directionSelector);
 
-    /*    function onChange(date, dateString) {
-            console.log(date, dateString);
-        }*/
-    const sv1 = [74, 96, 52, 28, 39, 41, 17, 63, 85];
-    const sv2 = [85, 63, 17, 41, 39, 28, 52, 96, 74];
-    const svIdx = ["y", "yz", "z", "yv", "centr", "sz", "v", "sv", "s"];
 
-    const s2 = [21, 66, 48, 39, 12, 84, 75, 57, 93];
-    const s1 = [93, 57, 75, 84, 12, 39, 48, 66, 21];
-    const sIdx = ["yv", "y", "yz", "v", "centr", "z", "sv", "s", "sz"];
+    const sv1 = periodData.sv1.stars;
+    const sv2 = periodData.sv2.stars;
+    const svIdx = startMap.svIdx;
 
-    const sz1 = [75, 66, 12, 21, 57, 84, 93, 48, 39];
-    const sz2 = [39, 48, 93, 84, 57, 21, 12, 66, 75];
-    const szIdx = ["v", "yv", "y", "sv", "centr", "yz", "s", "sz", "z"];
+    const s2 = periodData.s2.stars;
+    const s1 = periodData.s1.stars;
+    const sIdx = startMap.sIdx;
 
 
-    const yv1 = [93, 84, 39, 48, 75, 12, 21, 66, 57];
-    const yv2 = [57, 66, 21, 12, 75, 48, 39, 84, 93];
-    const yvIdx = ["z", "sz", "s", "yz", "centr", "sv", "y", "yv", "v"];
-
-    const y2 = [39, 75, 57, 48, 21, 93, 84, 66, 12];
-    const y1 = [12, 66, 84, 93, 21, 48, 57, 75, 39];
-    const yIdx = ["sz", "s", "sv", "z", "centr", "v", "yz", "y", "yv"];
-
-    const yz1 = [58, 36, 71, 14, 93, 82, 25, 69, 47];
-    const yz2 = [47, 69, 25, 82, 93, 14, 71, 36, 58];
-    const yzIdx = ["s", "sv", "v", "sz", "centr", "yv", "z", "yz", "y"];
+    const sz1 = periodData.sz1.stars;
+    const sz2 = periodData.sz2.stars;
+    const szIdx = startMap.szIdx;
 
 
-    const z2 = [72, 26, 37, 94, 48, 83, 59, 61, 15];
-    const z1 = [15, 61, 59, 83, 48, 94, 37, 26, 72];
-    const zIdx = ["sv", "v", "yv", "s", "centr", "y", "sz", "z", "yz"];
+    const yv1 = periodData.yv1.stars;
+    const yv2 = periodData.yv2.stars;
+    const yvIdx = startMap.yvIdx;
 
 
-    const v2 = [51, 16, 95, 38, 84, 49, 73, 62, 27];
-    const v1 = [27, 62, 73, 49, 84, 38, 95, 16, 51];
-    const vIdx = ["yz", "z", "sz", "y", "centr", "s", "yv", "v", "sv"];
+    const y1 = periodData.y1.stars;
+    const y2 = periodData.y2.stars;
+
+    const yIdx = startMap.yIdx;
+
+    const yz1 = periodData.yz1.stars;
+    const yz2 = periodData.yz2.stars;
+    const yzIdx = startMap.yzIdx;
+
+
+    const z1 = periodData.z1.stars;
+    const z2 = periodData.z2.stars;
+
+    const zIdx = startMap.zIdx;
+
+
+    const v1 = periodData.v1.stars;
+    const v2 = periodData.v2.stars;
+
+    const vIdx = startMap.vIdx;
 
 
     const prepareCardInfo = (cardStart, directionArray) => {
@@ -72,7 +101,6 @@ const CardsPage = () => {
             i++;
         }
 
-        console.log(elem);
         return elem
 
     }
@@ -161,7 +189,9 @@ const CardsPage = () => {
 
 
     }
-
+    /*    function onChange(date, dateString) {
+               console.log(date, dateString);
+           }*/
     const directionSetting = getDirectionSetting(direction);
 
     console.log(directionSetting);
@@ -169,10 +199,14 @@ const CardsPage = () => {
     return (
         <>
 
+            <div style={{textAlign: "left", marginBottom: "10px", marginLeft: "30px", marginTop: "30px"}}>
+                <PeriodDropDown/>
+            </div>
 
             <div style={{textAlign: "left", marginBottom: "10px", marginLeft: "30px", marginTop: "30px"}}>
                 <DirectionDropDown/>
             </div>
+
             <div style={{display: "flex", direction: "row", flexWrap: "wrap", alignItems: "center"}}>
 
 

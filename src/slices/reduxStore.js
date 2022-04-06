@@ -7,7 +7,7 @@ const cardSlice = createSlice({
     initialState: {
         direction: "sever1",
         id: -1,
-        period: "6period"
+        period: "6"
     },
     reducers: {
         chouseDirection: {
