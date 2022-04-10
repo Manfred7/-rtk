@@ -255,7 +255,7 @@ export const foolCheck = (gradusOnFasade) => {
 
 
     if (check(gradus, tt_127))
-        return "127 Север ЮЗ, СЗ"
+        return "127 Север ЮЗ, Запад"
 
     if (check(gradus, tt_689))
         return "689 СЗ, СВ, ЮГ"
@@ -264,7 +264,7 @@ export const foolCheck = (gradusOnFasade) => {
         return "237 ЮЗ, Восток, Запад"
 
     if (check(gradus, tt_469))
-        return "469 ЮВ, СВ, ЮГ"
+        return "469 ЮВ, СЗ, ЮГ"
 
     if (check(gradus, tt_147))
         return "147 Север ЮВ Запад"
