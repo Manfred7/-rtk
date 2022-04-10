@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import CustomProperties from "react-custom-properties";
 import {
     customEastProp, customNordEastProp,
@@ -12,8 +12,7 @@ import {useSelector} from "react-redux";
 import {directionSelector, periodSelector} from "../../slices/selectors/card-selectors";
 import DirectionDropDown from "../DirectionDropDown/direction-drop-down";
 import PeriodDropDown from "../PeriodDropDown/period-dropdown";
-import {foolCheck} from "../../data/util";
-import {InputNumber} from "antd";
+
 import VneGua from "../VneGuaCalculater/vne-gua";
 
 const CardsPage = ({data}) => {
@@ -88,9 +87,6 @@ const CardsPage = ({data}) => {
 
 
     const prepareCardInfo = (cardStart, directionArray) => {
-
-      /*  console.log(cardStart);
-        console.log(directionArray);*/
         let elem = {}
         let i = 0;
         while (i < directionArray.length) {
