@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import CustomProperties from "react-custom-properties";
 import {
     customEastProp, customNordEastProp,
@@ -12,6 +12,8 @@ import {useSelector} from "react-redux";
 import {directionSelector, periodSelector} from "../../slices/selectors/card-selectors";
 import DirectionDropDown from "../DirectionDropDown/direction-drop-down";
 import PeriodDropDown from "../PeriodDropDown/period-dropdown";
+import {foolCheck} from "../../data/util";
+import {InputNumber} from "antd";
 
 const CardsPage = ({data}) => {
 
@@ -86,8 +88,8 @@ const CardsPage = ({data}) => {
 
     const prepareCardInfo = (cardStart, directionArray) => {
 
-        console.log(cardStart);
-        console.log(directionArray);
+      /*  console.log(cardStart);
+        console.log(directionArray);*/
         let elem = {}
         let i = 0;
         while (i < directionArray.length) {
@@ -196,35 +198,63 @@ const CardsPage = ({data}) => {
 
     console.log(directionSetting);
 
+    const [gradus, setGradus] = useState(0);
+
+    const handleChangeGradus = (evt) => {
+        console.log(evt.currentTarget.value);
+        setGradus(evt.currentTarget.value);
+    }
+
+    const [vneGua, setVneGua] = useState('');
+
+    useEffect(() => {
+
+        console.log('useEffect');
+        const res = foolCheck(gradus);
+        console.log(res);
+        setVneGua(res);
+
+    }, [gradus])
+
     return (
         <>
 
-            <div style={{textAlign: "left", marginBottom: "10px", marginLeft: "30px", marginTop: "30px"}}>
-                <PeriodDropDown/>
-            </div>
+            <div style={{display:"flex"}}>
+                <div>
+                    <div style={{textAlign: "left", marginBottom: "10px", marginLeft: "30px", marginTop: "30px"}}>
+                        <PeriodDropDown/>
+                    </div>
 
-            <div style={{textAlign: "left", marginBottom: "10px", marginLeft: "30px", marginTop: "30px"}}>
-                <DirectionDropDown/>
-            </div>
+                    <div style={{textAlign: "left", marginBottom: "10px", marginLeft: "30px", marginTop: "30px"}}>
+                        <DirectionDropDown/>
+                    </div>
 
-            <div style={{display: "flex", direction: "row", flexWrap: "wrap", alignItems: "center"}}>
+                    <div style={{display: "flex", direction: "row", flexWrap: "wrap", alignItems: "center"}}>
 
 
-                {/*     <div>
+                        {/*     <div>
                      <CardLoShu/>
                  </div>*/}
 
-                <div>
+                        <div>
 
-                    <CustomProperties properties={directionSetting.customDirectionProp}>
-                        <CardUniversal stars={directionSetting.stars}/>
-                    </CustomProperties>
-                    <h2>{directionSetting.caption}</h2>
+                            <CustomProperties properties={directionSetting.customDirectionProp}>
+                                <CardUniversal stars={directionSetting.stars}/>
+                            </CustomProperties>
+                            <h2>{directionSetting.caption}</h2>
+                        </div>
+
+
+                    </div>
                 </div>
 
+                <div style={{marginLeft:"200px", marginTop:"30px"}}>
+                    <h3>Проверка вне гуа</h3>
+                    <InputNumber min={0} max={359.9} value={gradus} onChange={setGradus}/>
+                    <h3>Вне гуа:{vneGua}</h3>
 
+                </div>
             </div>
-
         </>
     );
 };

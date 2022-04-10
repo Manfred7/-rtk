@@ -31,7 +31,7 @@ const DirectionDropDown = () => {
 
                     onChange={(value, option) =>  handleChangeDirection(option.key)  }
                     defaultValue="15"
-                    
+
                 >
                     <Option key="sv1" value="1">23 - 37 СВ-1</Option>
                     <Option key="sv23" value="2">38 - 67 СВ-23 </Option>
