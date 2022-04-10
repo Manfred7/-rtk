@@ -1,4 +1,111 @@
+import React from "react";
+
 const R = require('ramda');
+const directions = [
+    {
+        from: 23,
+        to: 37,
+        dirName: "sv1"
+
+    },
+    {
+        from: 38,
+        to: 67,
+        dirName: "sv2"
+
+    },
+    {
+        from: 68,
+        to: 82,
+        dirName: "vostok1"
+
+    },
+    {
+        from: 83,
+        to: 112,
+        dirName: "vostok23",
+        caption: "СВ-2"
+    },
+    {
+        from: 113,
+        to: 127,
+        dirName: "yv1",
+        caption: "СВ-2"
+    },
+    {
+        from: 128,
+        to: 157,
+        dirName: "yv23",
+        caption: "СВ-2"
+    },
+    {
+        from: 158,
+        to: 172,
+        dirName: "yug1",
+        caption: "СВ-2"
+    },
+    {
+        from: 173,
+        to: 202,
+        dirName: "yug23",
+        caption: "Юг-23"
+    },
+    {
+        from: 203,
+        to: 217,
+        dirName: "yz1",
+        caption: "ЮЗ-1"
+    },
+    {
+        from: 218,
+        to: 247,
+        dirName: "yz23",
+        caption: "СВ-2"
+    },
+    {
+        from: 248,
+        to: 262,
+        dirName: "zapad1",
+        caption: "СВ-2"
+    },
+    {
+        from: 263,
+        to: 292,
+        dirName: "zapad23",
+        caption: "СВ-2"
+    },
+    {
+        from: 293,
+        to: 307,
+        dirName: "sz1",
+        caption: "СВ-2"
+    },
+    {
+        from: 308,
+        to: 337,
+        dirName: "sz23",
+        caption: "СВ-2"
+    },
+    {
+        from: 338,
+        to: 352,
+        dirName: "sever1",
+        caption: "СВ-2"
+    },
+    {
+        from: 353,
+        to: 360,
+        dirName: "sever23",
+        caption: "СВ-2"
+    },
+    {
+        from: 0,
+        to: 22,
+        dirName: "sever23",
+        caption: "СВ-2"
+    }
+];
+
 
 const vg = {
     "outGua": {
@@ -97,15 +204,15 @@ const tt_469 = vg.outGua["469"];
 const tt_147 = vg.outGua["147"];
 
 
-const gradusOnTyl =(gradusOnFacade)=>{
-    const isMode1 = (gradusOnFacade < 180 ) ;
-    const isMode2 = (gradusOnFacade > 180 )    ;
+const gradusOnTyl = (gradusOnFacade) => {
+    const isMode1 = (gradusOnFacade < 180);
+    const isMode2 = (gradusOnFacade > 180);
 
     if (isMode1)
-        return 180+ gradusOnFacade;
+        return 180 + gradusOnFacade;
 
     if (isMode2)
-        return Math.abs(360 - (180+gradusOnFacade));
+        return Math.abs(360 - (180 + gradusOnFacade));
 }
 
 
@@ -133,37 +240,49 @@ const check = (gradus, vneGuaIntervals) => {
 
 }
 
-export const foolCheck =(gradusOnFasade)=>{
+export const foolCheck = (gradusOnFasade) => {
 
-    const gradus =  gradusOnTyl(Number.parseFloat(gradusOnFasade))
+    const gradus = gradusOnTyl(Number.parseFloat(gradusOnFasade))
 
-    if (check(gradus,tt_489))
+    if (check(gradus, tt_489))
         return "489 ЮВ, СВ, ЮГ"
 
-    if (check(gradus,tt_123))
+    if (check(gradus, tt_123))
         return "123 Север ЮЗ Восток"
 
-    if (check(gradus,tt_468))
+    if (check(gradus, tt_468))
         return "468 ЮВ, СЗ, СВ"
 
 
-    if (check(gradus,tt_127))
+    if (check(gradus, tt_127))
         return "127 Север ЮЗ, СЗ"
 
-    if (check(gradus,tt_689))
+    if (check(gradus, tt_689))
         return "689 СЗ, СВ, ЮГ"
 
-    if (check(gradus,tt_237))
+    if (check(gradus, tt_237))
         return "237 ЮЗ, Восток, Запад"
 
-    if (check(gradus,tt_469))
+    if (check(gradus, tt_469))
         return "489 ЮВ, СВ, ЮГ"
 
-    if (check(gradus,tt_147))
-    return "147 Север ЮВ Запад"
+    if (check(gradus, tt_147))
+        return "147 Север ЮВ Запад"
 
 }
 
 
+const getDirectionByGradusEx = (gradus, directionsArray) => {
+    for (const dir of directionsArray) {
 
-/*const checkOnVneGua = foolCheck(40);//?*/
+       const res = checkInInterval(gradus, [dir.from, dir.to]);
+
+        if (res)
+          return dir.dirName
+    }
+
+    return ""
+};
+
+export const getDirectionByGradus =(gradus)=>getDirectionByGradusEx(gradus, directions)
+

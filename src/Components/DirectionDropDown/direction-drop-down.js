@@ -9,14 +9,14 @@ const DirectionDropDown = () => {
     const dispatch = useDispatch();
 
     const handleChangeDirection = (newDirection) => {
-        dispatch(chouseDirection(newDirection));
+    /*    dispatch(chouseDirection(newDirection));*/
     }
 
     return (
 
             <Space direction="vertical" size={12}>
                 {/*<DatePicker onChange={onChange} picker="year"/>*/}
-                <label>Направление</label>
+                <label>Шпаргалка для самопроверки</label>
                 <Select
                     showSearch
                     style={{width: 300}}

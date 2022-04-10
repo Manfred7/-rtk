@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import CustomProperties from "react-custom-properties";
 import {
     customEastProp, customNordEastProp,
@@ -8,17 +8,21 @@ import {
     customWestProp
 } from "../../data/cards-setting";
 import CardUniversal from "../CardUniversal/cardUniversal";
-import {useSelector} from "react-redux";
-import {directionSelector, periodSelector} from "../../slices/selectors/card-selectors";
+import {useDispatch, useSelector} from "react-redux";
+import {directionSelector, gradusSelector, periodSelector} from "../../slices/selectors/card-selectors";
 import DirectionDropDown from "../DirectionDropDown/direction-drop-down";
 import PeriodDropDown from "../PeriodDropDown/period-dropdown";
 
 import VneGua from "../VneGuaCalculater/vne-gua";
+import {InputNumber} from "antd";
+import {chouseDirection, setGradus} from "../../slices/reduxStore";
+import {getDirectionByGradus} from "../../data/util";
 
 const CardsPage = ({data}) => {
 
     const {periodSix, periodSeven, periodEight, indexesMaps: startMap} = data;
     const selectedPeriod = useSelector(periodSelector);
+    const currentGradus = useSelector(gradusSelector);
 
     let periodData;
 
@@ -189,7 +193,19 @@ const CardsPage = ({data}) => {
 
     }
 
+    const dispatch = useDispatch();
+
+    const handleSetGradus = (gradus)=>{
+        dispatch(setGradus(gradus));
+
+        const newDirection = getDirectionByGradus(gradus);
+
+        console.log(newDirection);
+        dispatch(chouseDirection(newDirection));
+    }
+
     const directionSetting = getDirectionSetting(direction);
+
     return (
         <>
 
@@ -199,8 +215,10 @@ const CardsPage = ({data}) => {
                         <PeriodDropDown/>
                     </div>
 
+
                     <div style={{textAlign: "left", marginBottom: "10px", marginLeft: "30px", marginTop: "30px"}}>
-                        <DirectionDropDown/>
+                        <h2>Градус на двери</h2>
+                        <InputNumber min={0} max={359.9} value={currentGradus} onChange={handleSetGradus}/>
                     </div>
 
                     <div style={{display: "flex", direction: "row", flexWrap: "wrap", alignItems: "center"}}>
@@ -225,6 +243,10 @@ const CardsPage = ({data}) => {
                 <VneGua/>
 
             </div>
+                 <div style={{textAlign: "left", marginBottom: "10px", marginLeft: "30px", marginTop: "30px"}}>
+                        <DirectionDropDown/>
+                    </div>
+
         </>
     );
 };

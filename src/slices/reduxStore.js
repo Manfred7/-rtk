@@ -7,7 +7,8 @@ const cardSlice = createSlice({
     initialState: {
         direction: "sever1",
         id: -1,
-        period: "6"
+        period: "6",
+        gradus: 0
     },
     reducers: {
         chouseDirection: {
@@ -25,6 +26,9 @@ const cardSlice = createSlice({
         },
         chousePeriod: (state, action) => {
             state.period = action.payload
+        },
+        setGradus: (state, action) => {
+            state.gradus = action.payload
         }
     }, /*extraReducers:(builder)=>{
         builder.addCase()
@@ -38,7 +42,7 @@ const reducer = {
     cardsReducer:   cardSlice.reducer ,
 
 }
-export const {chouseDirection, chousePeriod} = cardSlice.actions;
+export const {chouseDirection, setGradus, chousePeriod} = cardSlice.actions;
 
 export const store =  configureStore(
     {

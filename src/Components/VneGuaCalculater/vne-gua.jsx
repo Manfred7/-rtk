@@ -1,17 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import {InputNumber} from "antd";
-import {foolCheck} from "../../data/util";
+import {foolCheck, getDirectionByGradus} from "../../data/util";
 
 const VneGua = () => {
 
     const [gradus, setGradus] = useState(0);
     const [vneGua, setVneGua] = useState('');
+    const [direction, setDirection] = useState('');
 
     useEffect(() => {
 
         const res = foolCheck(gradus);
-        console.log(res);
         setVneGua(res);
+
+        const res2= getDirectionByGradus(gradus);
+
+        setDirection(res2);
 
     }, [gradus])
     return (
@@ -19,6 +23,7 @@ const VneGua = () => {
             <h3>Проверка вне гуа</h3>
             <InputNumber min={0} max={359.9} value={gradus} onChange={setGradus}/>
             <h3>Вне гуа:{vneGua}</h3>
+            <h3>direction:{direction}</h3>
         </div>
     );
 };
