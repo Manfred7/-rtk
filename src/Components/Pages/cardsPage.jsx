@@ -14,6 +14,7 @@ import DirectionDropDown from "../DirectionDropDown/direction-drop-down";
 import PeriodDropDown from "../PeriodDropDown/period-dropdown";
 import {foolCheck} from "../../data/util";
 import {InputNumber} from "antd";
+import VneGua from "../VneGuaCalculater/vne-gua";
 
 const CardsPage = ({data}) => {
 
@@ -191,31 +192,8 @@ const CardsPage = ({data}) => {
 
 
     }
-    /*    function onChange(date, dateString) {
-               console.log(date, dateString);
-           }*/
+
     const directionSetting = getDirectionSetting(direction);
-
-    console.log(directionSetting);
-
-    const [gradus, setGradus] = useState(0);
-
-    const handleChangeGradus = (evt) => {
-        console.log(evt.currentTarget.value);
-        setGradus(evt.currentTarget.value);
-    }
-
-    const [vneGua, setVneGua] = useState('');
-
-    useEffect(() => {
-
-        console.log('useEffect');
-        const res = foolCheck(gradus);
-        console.log(res);
-        setVneGua(res);
-
-    }, [gradus])
-
     return (
         <>
 
@@ -248,12 +226,8 @@ const CardsPage = ({data}) => {
                     </div>
                 </div>
 
-                <div style={{marginLeft:"200px", marginTop:"30px"}}>
-                    <h3>Проверка вне гуа</h3>
-                    <InputNumber min={0} max={359.9} value={gradus} onChange={setGradus}/>
-                    <h3>Вне гуа:{vneGua}</h3>
+                <VneGua/>
 
-                </div>
             </div>
         </>
     );
