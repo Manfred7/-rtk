@@ -180,7 +180,7 @@ const vg = {
             [286.5, 292.5],
             [112.5, 118]
         ],
-        "147": [
+        "137": [
             [174, 180],
             [180, 186],
             [270, 276],
@@ -201,7 +201,7 @@ const tt_127 = vg.outGua["127"];
 const tt_689 = vg.outGua["689"];
 const tt_237 = vg.outGua["237"];
 const tt_469 = vg.outGua["469"];
-const tt_147 = vg.outGua["147"];
+const tt_137 = vg.outGua["137"];
 
 
 const gradusOnTyl = (gradusOnFacade) => {
@@ -266,8 +266,8 @@ export const foolCheck = (gradusOnFasade) => {
     if (check(gradus, tt_469))
         return "469 ЮВ, СЗ, ЮГ"
 
-    if (check(gradus, tt_147))
-        return "147 Север ЮВ Запад"
+    if (check(gradus, tt_137))
+        return "137 Север В Запад"
 
 }
 
