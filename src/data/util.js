@@ -245,29 +245,29 @@ export const foolCheck = (gradusOnFasade) => {
     const gradus = gradusOnTyl(Number.parseFloat(gradusOnFasade))
 
     if (check(gradus, tt_489))
-        return "489 ЮВ, СВ, ЮГ"
+        return [4,8,9]
 
     if (check(gradus, tt_123))
-        return "123 Север ЮЗ Восток"
+        return [1,2,3]
 
     if (check(gradus, tt_468))
-        return "468 ЮВ, СЗ, СВ"
+        return [4,6,8]
 
 
     if (check(gradus, tt_127))
-        return "127 Север ЮЗ, Запад"
+        return [1,2,7]
 
     if (check(gradus, tt_689))
-        return "689 СЗ, СВ, ЮГ"
+        return [6,8,9]
 
     if (check(gradus, tt_237))
-        return "237 ЮЗ, Восток, Запад"
+        return [2,3,7]
 
     if (check(gradus, tt_469))
-        return "469 ЮВ, СЗ, ЮГ"
+        return [4,6,9]
 
     if (check(gradus, tt_137))
-        return "137 Север В Запад"
+        return [1,3,7]
 
 }
 

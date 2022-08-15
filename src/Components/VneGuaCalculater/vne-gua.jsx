@@ -13,9 +13,7 @@ const VneGua = () => {
         const res = foolCheck(gradus);
         setVneGua(res);
 
-        const res2= getDirectionByGradus(gradus);
 
-        setDirection(res2);
 
     }, [gradus])
     return (
@@ -23,7 +21,7 @@ const VneGua = () => {
             <h3>Проверка вне гуа</h3>
             <InputNumber min={0} max={359.9} value={gradus} onChange={setGradus}/>
             <h3>Вне гуа:{vneGua}</h3>
-            <h3>direction:{direction}</h3>
+
         </div>
     );
 };

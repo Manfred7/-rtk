@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import CustomProperties from "react-custom-properties";
 import {
     customEastProp, customNordEastProp,
@@ -16,15 +16,24 @@ import PeriodDropDown from "../PeriodDropDown/period-dropdown";
 import VneGua from "../VneGuaCalculater/vne-gua";
 import {InputNumber} from "antd";
 import {chouseDirection, setGradus} from "../../slices/reduxStore";
-import {getDirectionByGradus} from "../../data/util";
-import UsinCycle from "../UsinCycle/usin-cycle";
-import {UncontrolledDiagram} from "../UsinCycle/diagram";
+import {foolCheck, getDirectionByGradus} from "../../data/util";
 
 const CardsPage = ({data}) => {
 
     const {periodSix, periodSeven, periodEight, indexesMaps: startMap} = data;
     const selectedPeriod = useSelector(periodSelector);
     const currentGradus = useSelector(gradusSelector);
+
+    const [vneGua, setVneGua] = useState('');
+
+    useEffect(() => {
+
+        const res = foolCheck(currentGradus);
+        setVneGua(res);
+
+
+
+    }, [currentGradus])
 
     let periodData;
 
@@ -233,7 +242,7 @@ const CardsPage = ({data}) => {
                         <div>
 
                             <CustomProperties properties={directionSetting.customDirectionProp}>
-                                <CardUniversal stars={directionSetting.stars}/>
+                                <CardUniversal stars={directionSetting.stars} vneGua={vneGua}/>
                             </CustomProperties>
                             <h2>{directionSetting.caption}</h2>
                         </div>
@@ -242,7 +251,7 @@ const CardsPage = ({data}) => {
                     </div>
                 </div>
 
-                <VneGua/>
+                {/*<VneGua/>*/}
 
 
 
