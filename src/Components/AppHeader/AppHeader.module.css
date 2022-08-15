@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    margin-left: 50px;
+
+}
+
+.siteNavigation {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 400px;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+
+.siteNavigationItem {
+    padding: 25px 0;
+    margin-right: 35px;
+}
+
+.linkItem {
+    text-decoration: none;
+    color: #8585AD;
+}

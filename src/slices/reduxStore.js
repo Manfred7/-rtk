@@ -2,6 +2,9 @@ import {configureStore, createSlice, nanoid} from "@reduxjs/toolkit";
 import {logger} from "redux-logger";
 import {cardsApi} from "../api/cards-api";
 
+export type TCardState ={
+
+}
 const cardSlice = createSlice({
     name: "@@card",
     initialState: {

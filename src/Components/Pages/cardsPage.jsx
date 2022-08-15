@@ -17,6 +17,8 @@ import VneGua from "../VneGuaCalculater/vne-gua";
 import {InputNumber} from "antd";
 import {chouseDirection, setGradus} from "../../slices/reduxStore";
 import {getDirectionByGradus} from "../../data/util";
+import UsinCycle from "../UsinCycle/usin-cycle";
+import {UncontrolledDiagram} from "../UsinCycle/diagram";
 
 const CardsPage = ({data}) => {
 
@@ -241,6 +243,8 @@ const CardsPage = ({data}) => {
                 </div>
 
                 <VneGua/>
+
+
 
             </div>
                  <div style={{textAlign: "left", marginBottom: "10px", marginLeft: "30px", marginTop: "30px"}}>
