@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    width: 1000px;
+}
+
+.controlsContainer{
+    width: 450px;
+}
+
+.diagrammaContainer{
+    width: 700px;
+}
+
+.leftPane{
+    background-color: #8585AD;
+    color: #61dafb;
+}
+
+.rightPane{
+
+    background-color: chartreuse;
+}
+
+

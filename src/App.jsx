@@ -1,10 +1,9 @@
 import React, {useEffect} from 'react';
 import './App.css';
-import CardsPage from "./Components/Pages/cardsPage";
+
 import {useGetCardsQuery} from "./api/cards-api";
 import 'beautiful-react-diagrams/styles.css';
-import {UncontrolledDiagram} from "./Components/UsinCycle/diagram";
-import TestReselect from "./Components/TestReselect/testReselect";
+
 import {BrowserRouter} from "react-router-dom";
 import AppPages from "./Components/AppPages/AppPages";
 import AppHeader from "./Components/AppHeader/AppHeader";
@@ -37,8 +36,9 @@ function App() {
 
     return (
         <div className="App">
+
             <BrowserRouter>
-                {/*<TestReselect/>*/}
+
                 <AppHeader/>
                <AppPages/>
             </BrowserRouter>

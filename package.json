@@ -21,6 +21,7 @@
     "react-custom-properties": "^1.2.0",
     "react-dom": "^18.0.0",
     "react-redux": "^7.2.8",
+    "react-reflex": "^4.0.9",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
     "redux-logger": "^3.0.6",
