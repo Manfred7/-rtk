@@ -1,5 +1,12 @@
 import Diagram, {createSchema, useSchema} from 'beautiful-react-diagrams';
-import React from "react";
+import React, {useEffect} from "react";
+import {useSelector} from "react-redux";
+import {
+    directionSelector,
+    directionStarSelector,
+    enterStarSelector,
+    stenaStarSelector, tylStarSelector
+} from "../../slices/selectors/card-selectors";
 
 const FireNode = (props) => {
     const {inputs} = props;
@@ -61,23 +68,6 @@ const TreeNode = (props) => {
     );
 };
 
-/*const CustomNode = (props) => {
-    const {inputs} = props;
-
-    return (
-        <div style={{background: 'red', borderRadius: '40px'}}>
-            <div style={{padding: '10px', color: 'white'}}>
-                Custom Node
-            </div>
-            <div style={{marginTop: '20px'}}>
-                {inputs.map((port) => React.cloneElement(port, {
-                    style: {width: '50px', height: '25px', background: '#1B263B'}
-                }))}
-            </div>
-        </div>
-    );
-};*/
-
 const initialSchema = createSchema({
     nodes: [
         {
@@ -85,14 +75,14 @@ const initialSchema = createSchema({
             content: 'Огонь',
             coordinates: [150, 60],
             render: FireNode,
-           /* outputs: [{id: 'fo-1', alignment: 'right'}],
-            inputs: [{id: 'fi-1', alignment: 'left'}],*/
+            /* outputs: [{id: 'fo-1', alignment: 'right'}],
+             inputs: [{id: 'fi-1', alignment: 'left'}],*/
         },
         {
             id: 'nodeE',
             content: 'Земля',
             coordinates: [250, 60],
-            render:EartchNode,
+            render: EartchNode,
 
             /*outputs: [{id: 'eo-1', alignment: 'right'}],
             inputs: [{id: 'ei-1', alignment: 'left'}],*/
@@ -101,7 +91,7 @@ const initialSchema = createSchema({
             id: 'nodeM',
             content: 'Металл',
             coordinates: [350, 100],
-            render:MetallNode,
+            render: MetallNode,
 
             /*outputs: [{id: 'mo-1', alignment: 'right'}],
             inputs: [{id: 'mi-1', alignment: 'left'}],*/
@@ -110,7 +100,7 @@ const initialSchema = createSchema({
             id: 'nodeW',
             content: 'Вода',
             coordinates: [250, 160],
-            render:WaterNode,
+            render: WaterNode,
 
             /*outputs: [{id: 'wo-1', alignment: 'right'}],
             inputs: [{id: 'wi-1', alignment: 'left'}],*/
@@ -119,7 +109,7 @@ const initialSchema = createSchema({
             id: 'nodeT',
             content: 'Дерево',
             coordinates: [60, 160],
-            render:TreeNode,
+            render: TreeNode,
 
             /*outputs: [{id: 'to-1', alignment: 'left'}],
             inputs: [{id: 'ti-1', alignment: 'right'}],*/
@@ -139,17 +129,67 @@ const initialSchema = createSchema({
 ]*/
 
 export const UncontrolledDiagram = () => {
+
+    const tylStar = useSelector(tylStarSelector);
+    const stenaStar = useSelector(stenaStarSelector);
+    const directionStar = useSelector(directionStarSelector);
+    const enterStar = useSelector(enterStarSelector);
+
+
+    const starts = [tylStar, stenaStar, directionStar, enterStar];
+    const hasTree = () => starts.includes(3) || starts.includes(4) ;
+    const hasFire = () => starts.includes(9);
+
+    const hasEarch = () => {
+        return starts.includes(5) ||
+            starts.includes(2) ||
+            starts.includes(8);
+    }
+
+    const hasWater = () => starts.includes(1);
+
+    const hasMetal = () => {
+        return starts.includes(6) ||
+            starts.includes(7)
+    }
+
+    let links = [];
+
+
     // create diagrams schema
     const [schema, {onChange}] = useSchema(initialSchema);
 
-    const doUpdateShema=()=>{
 
-        console.log('doUpdateShema');
-        const newShema = {...schema,
-                         links:[{ input: 'nodeT',  output: 'nodeF',  readonly: true },]
+    useEffect( ()=>{
 
-
+        if ((hasTree() && hasFire())) {
+            links = [...links, {input: 'nodeT', output: 'nodeF', readonly: true}]
         }
+        if (hasFire() && hasEarch()) {
+            links = [...links, {input: 'nodeF', output: 'nodeE', readonly: true}]
+        }
+        if (hasEarch() && hasMetal()) {
+            links = [...links, {input: 'nodeE', output: 'nodeM', readonly: true}]
+        }
+        if (hasMetal() && hasWater()) {
+            links = [...links, {input: 'nodeM', output: 'nodeW', readonly: true}]
+        }
+        if (hasWater() && hasTree()) {
+            links = [...links, {input: 'nodeW', output: 'nodeT', readonly: true}]
+        }
+        doUpdateShema();
+
+    },[tylStar,stenaStar, directionStar,enterStar ])
+
+    const doUpdateShema = () => {
+
+        const newShema = {
+            ...schema,
+            links: [...links]
+        }
+
+        console.log('doUpdateShema', links);
+
         onChange(newShema);
     }
 

@@ -1,81 +1,63 @@
 import React, {useState} from 'react';
 import {Button, InputNumber} from "antd";
-import {UncontrolledDiagram} from "./diagram";
-import s from "./usin-cycle.module.css"
+
+import {useDispatch, useSelector} from "react-redux";
+
+import {
+     directionStarSelector,
+    enterStarSelector,
+    stenaStarSelector,
+    tylStarSelector
+} from "../../slices/selectors/card-selectors";
+import {setDirectionStar, setEnterStar, setStenaStar, setTylStar} from "../../slices/reduxStore";
 
 const UsinCycle = () => {
 
-    const [tylStar, setTylStar] = useState();
-    const [stenaStar, setStenaStar] = useState();
-    const [directionStar, setDirectionStar] = useState();
-    const [enterStar, setEnterStar] = useState();
+    const tylStar = useSelector( tylStarSelector);
+    const stenaStar = useSelector( stenaStarSelector);
+    const directionStar = useSelector(directionStarSelector);
+    const enterStar = useSelector(enterStarSelector);
 
-    const [result, setResult] = useState();
+    const dispatch = useDispatch();
 
-    const hanldeCalcResult = () => {
-        const newCombination = [
-            [tylStar, stenaStar].join(""),
-            [tylStar, directionStar].join(""),
-            [tylStar, enterStar].join("")];
-        setResult(newCombination);
+    const handleSettylStar = (tylStar)=>{
+        dispatch(setTylStar(tylStar));
     }
 
-    const hasTree = () => [tylStar, stenaStar, directionStar, enterStar].includes(3);
-    const hasFire = () => [tylStar, stenaStar, directionStar, enterStar].includes(9);
-
-    const hasEarch = () => {
-        return [tylStar, stenaStar, directionStar, enterStar].includes(5) ||
-            [tylStar, stenaStar, directionStar, enterStar].includes(2) ||
-            [tylStar, stenaStar, directionStar, enterStar].includes(8);
+    const handleSetStenaStar = (stenaStar)=>{
+        dispatch(setStenaStar(stenaStar));
     }
-
-    const hasWater = () => [tylStar, stenaStar, directionStar, enterStar].includes(1);
-
-    const hasMetal = () => {
-        return [tylStar, stenaStar, directionStar, enterStar].includes(6) ||
-            [tylStar, stenaStar, directionStar, enterStar].includes(7)
+    const handleSetDirectionStar = (directionStar)=>{
+        dispatch(setDirectionStar(directionStar));
     }
-
-    const T_F = (hasTree() && hasFire()) ? 'Есть' : "Нет";
-    const F_E = (hasFire() && hasEarch()) ? 'Есть' : "Нет";
-    const E_M = (hasEarch() && hasMetal()) ? 'Есть' : "Нет";
-    const M_W = (hasMetal() && hasWater()) ? 'Есть' : "Нет";
-    const W_T = (hasWater() && hasTree()) ? 'Есть' : "Нет";
-
+    const handleSetEnterStar = (enterStar)=>{
+        dispatch(setEnterStar(enterStar));
+    }
     return (
         <div>
             <div>
-                <h2>Связь Дерево порождает Огонь {T_F}</h2>
-                <h2>Связь Вода порождает Дерево {W_T}</h2>
-                <h2>Связь Металл порождает Воду {M_W}</h2>
-                <h2>Связь Огонь порождает Землю {F_E}</h2>
-                <h2>Связь Земля порождает Металл {E_M}</h2>
+              
                 <div>
                     <h2>Тыловая</h2>
-                    <InputNumber min={1} max={9} value={tylStar} onChange={setTylStar}/>
+                    <InputNumber min={1} max={9} value={tylStar} onChange={
+                        handleSettylStar
+                    }/>
                 </div>
 
                 <div>
                     <h2>Янская у стены</h2>
-                    <InputNumber min={1} max={9} value={stenaStar} onChange={setStenaStar}/>
+                    <InputNumber min={1} max={9} value={stenaStar} onChange={handleSetStenaStar}/>
                 </div>
 
                 <div>
                     <h2>Янская от направления</h2>
-                    <InputNumber min={1} max={9} value={directionStar} onChange={setDirectionStar}/>
+                    <InputNumber min={1} max={9} value={directionStar} onChange={handleSetDirectionStar}/>
                 </div>
 
                 <div>
                     <h2>Янская от входа</h2>
-                    <InputNumber min={1} max={9} value={enterStar} onChange={setEnterStar}/>
+                    <InputNumber min={1} max={9} value={enterStar} onChange={handleSetEnterStar}/>
                 </div>
-                <div className={s.buttonBox}>
-                    <Button onClick={hanldeCalcResult}>Посчитать</Button>
-                </div>
-            </div>
-
-            <div>
-                {result}
 
             </div>
 

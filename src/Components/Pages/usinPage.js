@@ -28,18 +28,6 @@ const UsinPage = () => {
 
         </ReflexContainer>
 
-
-
-
-        /* <div className={s.container}>
-             <div className={s.controlsContainer}>
-                 <UsinCycle/>
-             </div>
-             <div className={s.diagrammaContainer}>
-                 <h2>Диаграмма</h2>
-                 <UncontrolledDiagram/>
-             </div>
-         </div>*/
     );
 };
 

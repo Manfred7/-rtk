@@ -4,6 +4,11 @@ export const directionSelector =(state)=> state.cardsReducer.direction;
 export const periodSelector =(state) => state.cardsReducer.period;
 export const gradusSelector =(state) => state.cardsReducer.gradus;
 
+export const enterStarSelector =(state) => state.cardsReducer.enterStar;
+export const directionStarSelector =(state) => state.cardsReducer.directionStar;
+export const stenaStarSelector =(state) => state.cardsReducer.stenaStar;
+export const tylStarSelector =(state) => state.cardsReducer.tylStar;
+
 
 export const memoGrand  = createSelector([periodSelector, directionSelector],
     (period,direction )=>({

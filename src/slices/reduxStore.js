@@ -1,6 +1,7 @@
 import {configureStore, createSlice, nanoid} from "@reduxjs/toolkit";
 import {logger} from "redux-logger";
 import {cardsApi} from "../api/cards-api";
+import {useState} from "react";
 
 
 const cardSlice = createSlice({
@@ -9,7 +10,13 @@ const cardSlice = createSlice({
         direction: "sever1",
         id: -1,
         period: "6",
-        gradus: 0
+        gradus: 0,
+
+        tylStar: 1,
+        stenaStar: 6 ,
+        directionStar: 8,
+        enterStar: 9
+
     },
     reducers: {
         chouseDirection: {
@@ -25,6 +32,22 @@ const cardSlice = createSlice({
                 }
             )
         },
+
+
+        setTylStar: (state, action) => {
+            state.tylStar = action.payload
+        },
+
+        setStenaStar: (state, action) => {
+            state.stenaStar = action.payload
+        },
+        setDirectionStar: (state, action) => {
+            state.directionStar = action.payload
+        },
+        setEnterStar: (state, action) => {
+            state.enterStar = action.payload
+        },
+
         chousePeriod: (state, action) => {
             state.period = action.payload
         },
@@ -43,7 +66,7 @@ const reducer = {
     cardsReducer:   cardSlice.reducer ,
 
 }
-export const {chouseDirection, setGradus, chousePeriod} = cardSlice.actions;
+export const {chouseDirection, setGradus, chousePeriod , setDirectionStar, setEnterStar, setTylStar, setStenaStar} = cardSlice.actions;
 
 export const store =  configureStore(
     {
