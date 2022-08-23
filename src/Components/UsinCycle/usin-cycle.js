@@ -4,65 +4,81 @@ import {Button, InputNumber} from "antd";
 import {useDispatch, useSelector} from "react-redux";
 
 import {
-     directionStarSelector,
+    directionStarSelector,
     enterStarSelector,
     stenaStarSelector,
-    tylStarSelector
+    tylStarSelector, usinConfigObjSelector, usinConfigSelector, usinStars
 } from "../../slices/selectors/card-selectors";
-import {setDirectionStar, setEnterStar, setStenaStar, setTylStar} from "../../slices/reduxStore";
+import {
+    setDirectionStar,
+    setEnterStar,
+    setStenaStar,
+    setTylStar,
+    setUsinConfig,
+    updateUsinConfig
+} from "../../slices/reduxStore";
 
 const UsinCycle = () => {
 
-    const tylStar = useSelector( tylStarSelector);
-    const stenaStar = useSelector( stenaStarSelector);
-    const directionStar = useSelector(directionStarSelector);
-    const enterStar = useSelector(enterStarSelector);
+    const stars = useSelector(usinConfigSelector);
+
+    const config = useSelector(usinConfigObjSelector);
+    /* console.log({config});*/
+
+    /*console.log("stars", stars);*/
 
     const dispatch = useDispatch();
 
-    const handleSettylStar = (tylStar)=>{
-        dispatch(setTylStar(tylStar));
+    const handleSetStar = (id, newStarValue) => {
+        /*   console.log({id});*/
+        /*  console.log({newStarValue});
+          console.log("config[id]", config[id]);*/
+
+        let newVal = {...config[id]};
+        newVal.value = newStarValue;
+
+        dispatch(updateUsinConfig(newVal));
     }
 
-    const handleSetStenaStar = (stenaStar)=>{
-        dispatch(setStenaStar(stenaStar));
-    }
-    const handleSetDirectionStar = (directionStar)=>{
-        dispatch(setDirectionStar(directionStar));
-    }
-    const handleSetEnterStar = (enterStar)=>{
-        dispatch(setEnterStar(enterStar));
-    }
-    return (
-        <div>
+
+    const StarInput = ({starInfo, onStarChange}) => {
+        console.log(starInfo)
+        return <>
             <div>
-              
-                <div>
-                    <h2>Тыловая</h2>
-                    <InputNumber min={1} max={9} value={tylStar} onChange={
-                        handleSettylStar
-                    }/>
-                </div>
-
-                <div>
-                    <h2>Янская у стены</h2>
-                    <InputNumber min={1} max={9} value={stenaStar} onChange={handleSetStenaStar}/>
-                </div>
-
-                <div>
-                    <h2>Янская от направления</h2>
-                    <InputNumber min={1} max={9} value={directionStar} onChange={handleSetDirectionStar}/>
-                </div>
-
-                <div>
-                    <h2>Янская от входа</h2>
-                    <InputNumber min={1} max={9} value={enterStar} onChange={handleSetEnterStar}/>
-                </div>
-
+                <h2>{starInfo.description}</h2>
+                <InputNumber min={1} max={9} value={starInfo.value} onChange={(val) => {
+                    onStarChange(starInfo.id, val)
+                }
+                }/>
             </div>
+        </>
+    }
 
-        </div>
-    );
+    const StarControls = () => {
+
+        const controls = [];
+        for (const key of Object.keys(config)) {
+            const item = config[key];
+            let control = <StarInput key={item.id} starInfo={item} onStarChange={handleSetStar}/>;
+            controls.push(control)
+        }
+
+        return controls
+    }
+
+    if (config != undefined) {
+        console.log(config)
+        console.log("!!!!!!!!!!!!!!");
+        return (
+            <div>
+                <StarControls/>
+            </div>
+        );
+    } else {
+        console.log("!!!else!!!!!");
+        return null
+
+    }
 };
 
 export default UsinCycle;

@@ -13,9 +13,18 @@ const cardSlice = createSlice({
         gradus: 0,
 
         tylStar: 1,
-        stenaStar: 6 ,
+        stenaStar: 6,
         directionStar: 8,
-        enterStar: 9
+        enterStar: 9,
+        usinConfig: [],
+
+        usinConfigObj: {
+            1: {id: 1, description: "Тыловая handleSettylStar", value: 1},
+            2: {id: 2, description: "Янская у стены", value: 2},
+            3: {id: 3, description: "Янская от направления", value: 6},
+            4: {id: 4, description: "Янская от входа", value: 4},
+            5: {id: 5, description: "Энергия дворца", value: 9}
+        }
 
     },
     reducers: {
@@ -31,6 +40,21 @@ const cardSlice = createSlice({
                     }
                 }
             )
+        },
+
+
+        setUsinConfig: (state, action) => {
+            state.usinConfig = [...action.payload]
+        },
+
+        updateUsinConfig: (state, action) => {
+
+            const newObj = {...state.usinConfigObj};
+            newObj[action.payload.id] = {...action.payload};
+
+            state.usinConfigObj = newObj;
+
+
         },
 
 
@@ -60,19 +84,24 @@ const cardSlice = createSlice({
 
 })
 
-const dataReducer = { [cardsApi.reducerPath]: cardsApi.reducer}
+const dataReducer = {[cardsApi.reducerPath]: cardsApi.reducer}
 const reducer = {
     [cardsApi.reducerPath]: cardsApi.reducer,
-    cardsReducer:   cardSlice.reducer ,
+    cardsReducer: cardSlice.reducer,
 
 }
-export const {chouseDirection, setGradus, chousePeriod , setDirectionStar, setEnterStar, setTylStar, setStenaStar} = cardSlice.actions;
+export const {
+    chouseDirection, setGradus, chousePeriod,
+    setDirectionStar, setEnterStar,
+    setTylStar, setStenaStar,
+    setUsinConfig, updateUsinConfig
+} = cardSlice.actions;
 
-export const store =  configureStore(
+export const store = configureStore(
     {
-        reducer:reducer,
-        devTools:true,
-        middleware: (getDeafaultMiddlware)=>getDeafaultMiddlware().concat(cardsApi.middleware)
+        reducer: reducer,
+        devTools: true,
+        middleware: (getDeafaultMiddlware) => getDeafaultMiddlware().concat(cardsApi.middleware)
 
     }
 )

@@ -5,7 +5,7 @@ import {
     directionSelector,
     directionStarSelector,
     enterStarSelector,
-    stenaStarSelector, tylStarSelector
+    stenaStarSelector, tylStarSelector, usinStars
 } from "../../slices/selectors/card-selectors";
 
 const FireNode = (props) => {
@@ -73,7 +73,7 @@ const initialSchema = createSchema({
         {
             id: 'nodeF',
             content: 'Огонь',
-            coordinates: [150, 60],
+            coordinates: [151, 92],
             render: FireNode,
             /* outputs: [{id: 'fo-1', alignment: 'right'}],
              inputs: [{id: 'fi-1', alignment: 'left'}],*/
@@ -81,7 +81,7 @@ const initialSchema = createSchema({
         {
             id: 'nodeE',
             content: 'Земля',
-            coordinates: [250, 60],
+            coordinates: [221, 36],
             render: EartchNode,
 
             /*outputs: [{id: 'eo-1', alignment: 'right'}],
@@ -90,7 +90,7 @@ const initialSchema = createSchema({
         {
             id: 'nodeM',
             content: 'Металл',
-            coordinates: [350, 100],
+            coordinates: [275, 90],
             render: MetallNode,
 
             /*outputs: [{id: 'mo-1', alignment: 'right'}],
@@ -99,7 +99,7 @@ const initialSchema = createSchema({
         {
             id: 'nodeW',
             content: 'Вода',
-            coordinates: [250, 160],
+            coordinates: [280, 162],
             render: WaterNode,
 
             /*outputs: [{id: 'wo-1', alignment: 'right'}],
@@ -108,7 +108,7 @@ const initialSchema = createSchema({
         {
             id: 'nodeT',
             content: 'Дерево',
-            coordinates: [60, 160],
+            coordinates: [160, 163],
             render: TreeNode,
 
             /*outputs: [{id: 'to-1', alignment: 'left'}],
@@ -130,13 +130,10 @@ const initialSchema = createSchema({
 
 export const UncontrolledDiagram = () => {
 
-    const tylStar = useSelector(tylStarSelector);
-    const stenaStar = useSelector(stenaStarSelector);
-    const directionStar = useSelector(directionStarSelector);
-    const enterStar = useSelector(enterStarSelector);
 
+    const starts = useSelector(usinStars);
+    console.log("UncontrolledDiagram", starts);
 
-    const starts = [tylStar, stenaStar, directionStar, enterStar];
     const hasTree = () => starts.includes(3) || starts.includes(4) ;
     const hasFire = () => starts.includes(9);
 
@@ -179,7 +176,7 @@ export const UncontrolledDiagram = () => {
         }
         doUpdateShema();
 
-    },[tylStar,stenaStar, directionStar,enterStar ])
+    },[starts ])
 
     const doUpdateShema = () => {
 
