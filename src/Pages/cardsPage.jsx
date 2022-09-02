@@ -6,17 +6,17 @@ import {
     customNordWestProp, customSouthEstProp,
     customSouthProp, customSouthWestProp,
     customWestProp
-} from "../../data/cards-setting";
-import CardUniversal from "../CardUniversal/cardUniversal";
+} from "../data/cards-setting";
+import CardUniversal from "../Components/CardUniversal/cardUniversal";
 import {useDispatch, useSelector} from "react-redux";
-import {directionSelector, gradusSelector, periodSelector} from "../../slices/selectors/card-selectors";
-import DirectionDropDown from "../DirectionDropDown/direction-drop-down";
-import PeriodDropDown from "../PeriodDropDown/period-dropdown";
+import {directionSelector, gradusSelector, periodSelector} from "../slices/selectors/card-selectors";
+import DirectionDropDown from "../Components/DirectionDropDown/direction-drop-down";
+import PeriodDropDown from "../Components/PeriodDropDown/period-dropdown";
 
-import VneGua from "../VneGuaCalculater/vne-gua";
+import VneGua from "../Components/VneGuaCalculater/vne-gua";
 import {InputNumber} from "antd";
-import {chouseDirection, setGradus} from "../../slices/reduxStore";
-import {foolCheck, getDirectionByGradus} from "../../data/util";
+import {chouseDirection, setGradus} from "../slices/reduxStore";
+import {foolCheck, getDirectionByGradus} from "../data/util";
 
 const CardsPage = ({data}) => {
 

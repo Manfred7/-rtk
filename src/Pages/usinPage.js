@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
-import {UncontrolledDiagram} from "../UsinCycle/diagram";
-import UsinCycle from "../UsinCycle/usin-cycle";
+import {UncontrolledDiagram} from "../Components/UsinCycle/diagram";
+import UsinCycle from "../Components/UsinCycle/usin-cycle";
 import 'react-reflex/styles.css'
 import s from "./usinPage.module.css"
 import {ReflexContainer, ReflexElement, ReflexSplitter} from "react-reflex";
-import {setUsinConfig, updateUsinConfig} from "../../slices/reduxStore";
+import {setUsinConfig, updateUsinConfig} from "../slices/reduxStore";
 import {useDispatch} from "react-redux";
 
 

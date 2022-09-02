@@ -1,5 +1,5 @@
 import React from 'react';
-import CardsPage from "../Pages/cardsPage";
+import CardsPage from "../../Pages/cardsPage";
 import {NavLink} from "react-router-dom";
 import s from "./AppHeader.module.css"
 

@@ -1,10 +1,8 @@
 import React from 'react';
-import CardsPage from "../Pages/cardsPage";
-import {useGetCardsQuery} from "../../api/cards-api";
+import CardsPage from "./cardsPage";
+import {useGetCardsQuery} from "../api/cards-api";
 import {Route, Routes} from "react-router-dom";
-import {UncontrolledDiagram} from "../UsinCycle/diagram";
-import AppHeader from "../AppHeader/AppHeader";
-import UsinPage from "../Pages/usinPage";
+import UsinPage from "./usinPage";
 
 const ROOT = "/";
 const CARDS = "/cards";
@@ -13,11 +11,7 @@ const AppPages = () => {
 
     const {data, isLoading} = useGetCardsQuery();
     return (
-
-
         <>
-
-
             <Routes>
                 <Route path={ROOT}
 

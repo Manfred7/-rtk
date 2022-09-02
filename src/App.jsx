@@ -5,7 +5,7 @@ import {useGetCardsQuery} from "./api/cards-api";
 import 'beautiful-react-diagrams/styles.css';
 
 import {BrowserRouter} from "react-router-dom";
-import AppPages from "./Components/AppPages/AppPages";
+import AppPages from "./Pages/AppPages";
 import AppHeader from "./Components/AppHeader/AppHeader";
 
 
