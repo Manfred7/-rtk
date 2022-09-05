@@ -59,6 +59,7 @@ const CardsPage = ({data}) => {
 
     const direction = useSelector(directionSelector);
 
+    console.log("direction",direction);
 
     const sv1 = periodData.sv1.stars;
     const sv2 = periodData.sv2.stars;
